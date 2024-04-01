@@ -1,0 +1,12 @@
+{
+  "name": "digging_into_fs_module",
+  "version": "1.0.0",
+  "description": "package for testing fs module",
+  "main": "checkingPermissionsOnAFile.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
