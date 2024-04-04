@@ -1,0 +1,12 @@
+{
+  "name": "trying_out_some_npm_modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "demoApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

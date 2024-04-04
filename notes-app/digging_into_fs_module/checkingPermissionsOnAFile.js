@@ -29,3 +29,19 @@ access(file, constants.X_OK, (err) => {
 //output => /Users/anmolkhanna/Downloads/guessGame exists
 //output => /Users/anmolkhanna/Downloads/guessGame is writable
 //output => /Users/anmolkhanna/Downloads/guessGame is readable
+
+// OUTPUT after using .split("/")
+// guessGame exists
+// guessGame is readable
+// guessGame is writable
+// guessGame is executable
+
+//checking if file is readable, writable and executable
+access(file, constants.R_OK | constants.W_OK | constants.X_OK, (err) => {
+  console.log(`${split[split.length - 1]}, ${err ? "is not" : "is"} RWX`);
+});
+//guessGame, is readable and writable
+//after running `chmod ugo-x guessGame`
+//OUTPUT = guessGame, is not RWX
+//after running `chmod ugo+x guessGame`
+//OUTPUT = guessGame, is RWX
