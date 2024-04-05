@@ -90,3 +90,23 @@ access(path, (err) => {
 //OUTPUT:Data written successfully!
 //`cat discarded.txt`
 //Hello World! You still persisting with your cruely?%
+
+//the recommended way of writing a file
+open(path, "wx", (err, fd) => {
+  if (err) {
+    if (err.code === "EEXIST") {
+      console.log("File already exists!");
+      return;
+    }
+    throw err;
+  }
+  try {
+    writeData(fd);
+  } finally {
+    close(fd, (err) => {
+      if (err) {
+        throw err;
+      }
+    });
+  }
+});
