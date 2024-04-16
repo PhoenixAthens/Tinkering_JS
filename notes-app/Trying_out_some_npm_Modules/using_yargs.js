@@ -1,4 +1,5 @@
 import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 console.log(yargs(process.argv));
 // YargsInstance {
 //   customScriptName: false,
@@ -6,7 +7,6 @@ console.log(yargs(process.argv));
 //   '$0': 'usingYargs.js',
 //   argv: [Getter]
 // }
-console.log("me1e");
 console.log(yargs(process.argv).argv);
 //The above returns:
 /*
@@ -27,6 +27,7 @@ console.log(yargs(process.argv).argv);
 // Options:
 //   --help     Show help                                                 [boolean]
 //   --version  Show version number                                       [boolean]
+
 //and the program quits after that
 console.log(process.argv);
 /*
@@ -39,7 +40,44 @@ console.log(process.argv);
     "echo 'hello'"
   ]
 */
-console.log("me3e");
 console.log(yargs.argv);
 //undefined
-console.log("me4e");
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(arr.slice(2));
+// [
+//   3, 4, 5,  6,
+//   7, 8, 9, 10
+// ]
+console.log(arr.slice(2, 5)); //inclusive of start(2) and exclusive of end(5)
+// [ 3, 4, 5 ]
+
+console.log(hideBin(arr));
+//OUTPUT
+// [
+//   3, 4, 5,  6,
+//   7, 8, 9, 10
+// ]
+//So hideBin simply takes the array and return array.slice(2)
+
+console.log(yargs(hideBin(process.argv)));
+//OUTPUT (unexpected), same as `console.log(yargs(process.argv));`
+// YargsInstance {
+//   customScriptName: false,
+//   parsed: false,
+//   '$0': 'using_yargs.js',
+//   argv: [Getter]
+// }
+
+yargs(hideBin(process.argv))
+  .command(
+    "curl <url>",
+    "fetch the contents of the URL",
+    () => {},
+    (argv) => {
+      console.info(argv);
+    },
+  )
+  .demand(1)
+  .parse();
+//{ _: [ 'curl' ], '$0': 'using_yargs.js', url: 'http://google.com' }

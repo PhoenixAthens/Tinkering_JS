@@ -1,6 +1,6 @@
-const fromNotes = require("./notes.js");
+//const fromNotes = require("./notes.js");
 const yargs = require("yargs");
-console.log(fromNotes());
+//console.log(fromNotes());
 
 //accessing the command line arguments
 console.log(process.argv);
@@ -32,3 +32,32 @@ console.log(yargs.argv);
 yargs.version("2.2.8");
 //Now, when we run "% node app_experimentation.js --version"
 //you still get the same versio as in package.json
+
+//adding new method to use with yargs
+yargs
+  .command("addME", "adds a note", () => {
+    console.log("Adding a note");
+  })
+  .help()
+  .parse();
+
+//using the format gives us the output
+// Your notes ...
+// [
+//   '/Users/anmolkhanna/.nvm/versions/node/v21.6.1/bin/node',
+//   '/Users/anmolkhanna/Downloads/Programming_Savings_2024/Node_with_Andrew/Notes_App/notes-app/app_experimentation.js',
+//   'addME'
+// ]
+// { _: [ 'addME' ], '$0': 'app_experimentation.js' }
+// Adding a note
+
+//Yargs api docs
+require("yargs/yargs")(process.argv.slice(2)).parse();
+//when we run `node app_experimentation.js yoda budo`, we get
+//{ _: [ 'yoda', 'budo' ], '$0': 'app_experimentation.js' }
+
+require("yargs/yargs")(["-x", "1", "-y", "2"]).parse();
+//when we run `node app_experimentation.js`, we get NOTHING
+
+require("yargs/yargs")().parse(["-x", "1", "-y", "2"]);
+//when we run `node app_experimentation.js`, we get NOTHING
