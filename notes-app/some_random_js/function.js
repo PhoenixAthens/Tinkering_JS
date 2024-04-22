@@ -40,3 +40,18 @@ const plus15 = makeAdder(15);
 const adding_15_to_45 = plus15(45);
 console.log(adding_15_to_45);
 //output: 60
+
+function countArgs(a, b, c, d) {
+  console.log(arguments[0]);
+  console.log(arguments[1]);
+  console.log(arguments[2]);
+  console.log(arguments[3]);
+  console.log(void 0);
+  console.log(Number.isNaN(void 0)); //false
+}
+countArgs("a", "3", ["Hello", "jel"], 23);
+// a
+// 3
+// [ 'Hello', 'jel' ]
+// 23
+// undefined
