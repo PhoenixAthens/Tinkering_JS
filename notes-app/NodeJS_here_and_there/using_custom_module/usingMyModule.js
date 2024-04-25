@@ -4,3 +4,4 @@ inc();
 inc();
 dec();
 getCount();
+//output 2
