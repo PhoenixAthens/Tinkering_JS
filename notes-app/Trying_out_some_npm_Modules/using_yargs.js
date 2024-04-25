@@ -302,3 +302,15 @@ let argv_using_choice_object = yargs(process.argv.slice(2))
   .parse();
 
 console.log(argv_using_choice_object);
+//On running, 'node using_yargs.js -s xs --height ll -w High'
+//we get the following output:
+// {
+//   _: [],
+//   s: 'xs',
+//   size: 'xs',
+//   height: 'll',
+//   h: 'll',
+//   w: 'High',
+//   weight: 'High',
+//   '$0': 'using_yargs.js'
+// }
