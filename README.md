@@ -6,6 +6,7 @@ _OUTDATED INFO AHEAD_
 > You'll find a bunch of directories in this project, the first one "Notes-App" is a node.js application that allows user to create notes from the command line. **It's currently a work in progress!**
 
 _UPDATED INFO_
+
 So I had some time to think things over! To better organize the project, I have decided to move the NodeJS Applications to their separate repos each. This repo will still be updated on a regular basis but will be more or so about JS and NodeJS and my attempts at getting a better understanding of these technologies.
 
 ## Sub-directories
