@@ -1,6 +1,8 @@
+//taken from https://freecodecamp.org/news/how-to-code-your-own-event-emitter-in-node-js-a-step-by-step-guide-e13b7e7908e1/
 class EventEmitter {
   listeners = {};
 
+  //my implementation
   addListener(eventName, fn) {
     if (Object.hasOwnProperty.call(this.listeners, eventName)) {
       this.listeners[eventName].push(fn);
@@ -8,6 +10,13 @@ class EventEmitter {
       this.listeners[eventName] = [];
       this.listeners[eventName].push(fn);
     }
+    return this;
+  }
+  //from freecodecamp
+  _addListener(eventName, fn) {
+    this.listeners[eventName] = this.listeners[eventName] || [];
+    this.listeners[eventName].push(fn);
+    return this;
   }
 
   on(eventName, fn) {}
@@ -36,7 +45,8 @@ function addListener(eventName, fn) {
 addListener("hello", () => {
   console.log("I am here!");
 });
-console.log(listeners); //{ hello: [ [Function (anonymous)] ] }
+console.log(listeners);
+//{ hello: [ [Function (anonymous)] ] }
 
 addListener("hello_2", () => {
   console.log("I am here as well!");
