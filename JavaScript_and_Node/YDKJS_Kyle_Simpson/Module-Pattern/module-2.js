@@ -40,5 +40,29 @@ let arr = [
     },
   },
 ];
-boink.apply(boink, arr);
+//boink.apply(boink, arr);
 //I habe nur für Jodha ein bischen hunger!
+
+myModule.define("bar", [], function () {
+  function hello(who) {
+    return "Let me introduce: " + who;
+  }
+  return {
+    hello: hello,
+  };
+});
+myModule.define("foo", ["bar"], function (bar) {
+  var hungry = "hippo";
+  function awesome() {
+    console.log(bar.hello(hungry).toUpperCase());
+  }
+  return {
+    awesome: awesome,
+  };
+});
+var bar = myModule.get("bar");
+var foo = myModule.get("foo");
+console.log(bar.hello("hippo"));
+foo.awesome();
+//Let me introduce: hippo
+//LET ME INTRODUCE: HIPPO
