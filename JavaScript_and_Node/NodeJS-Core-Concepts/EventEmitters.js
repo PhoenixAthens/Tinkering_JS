@@ -122,4 +122,7 @@ testRun.on("Bson", (a, b) => {
   console.log(`I am here too with ${a}, and ${b}`);
 });
 testRun.emit("Bson", "JK", "KG");
+// I am here too!
+// I am here too with JK, and KG
+// I am here too with JK, and KG
 module.exports = EventEmitter;
