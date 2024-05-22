@@ -124,5 +124,5 @@ testRun.on("Bson", (a, b) => {
 testRun.emit("Bson", "JK", "KG");
 // I am here too!
 // I am here too with JK, and KG
-// I am here too with JK, and KG
+// I am here too with JK, and KGcd
 module.exports = EventEmitter;
