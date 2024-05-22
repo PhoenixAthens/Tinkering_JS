@@ -44,3 +44,6 @@ function tag(strings, ...values) {
 let nameOF = "Jam";
 let age = 19;
 console.log(tag`Hello, ${nameOF}, Hope you had a great ${age}-th birthday!!`);
+//[ 'Hello, ', ', Hope you had a great ', '-th birthday!!' ]
+//[ 'Jam', 19 ]
+//Processed Template Literal!
