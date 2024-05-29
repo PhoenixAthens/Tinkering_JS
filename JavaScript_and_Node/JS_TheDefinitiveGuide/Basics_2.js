@@ -92,4 +92,10 @@ console.log(symbol_alias == symbol_alias2); //true
 
 console.log(Symbol.keyFor(symbol_alias)); //Jones
 console.log(Symbol.keyFor(symbol_alias2)); //Jones
-console.log(Symbol.keyFor(symbol_alias) === Symbol.keyFor(symbol_alias2));
+console.log(Symbol.keyFor(symbol_alias) === Symbol.keyFor(symbol_alias2)); //true
+
+console.log(obj);
+// {
+//    'a string': 'I am a string',
+//     [Symbol(prop)]: 'I am a symbol'
+// }
